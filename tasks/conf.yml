@@ -14,13 +14,8 @@
   template: src=artifact_store.j2 dest=/etc/marathon/conf/artifact_store
   when: artifact_store != ""
 
-- name: Remove optional --checkpoint option
-  file: path=/etc/marathon/conf/?checkpoint state=absent
-  when: checkpoint == ""
-
-- name: Set optional --checkpoint option
-  file: path=/etc/marathon/conf/?checkpoint state=touch
-  when: checkpoint != ""
+- name: Set --checkpoint option
+  copy: content="" dest=/etc/marathon/conf/?checkpoint
 
 - name: Remove optional --zk option
   file: path=/etc/marathon/conf/zk state=absent

@@ -20,4 +20,3 @@ haproxy_script_location: "/usr/local/bin"
 
 # optional
 artifact_store: ""
-checkpoint: "true"
